@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Query Data</title>
+</head>
+
+<body>
+    <h1>Query Water Data</h1>
+    <form method="get">
+        <label for="query">Search:</label>
+        <input type="text" id="query" name="query" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if water_data %}
+    <h2>Results:</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Color</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in water_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.ph }}</td>
+                <td>{{ data.color }}</td>
+                <td>{{ data.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <a href="{{ url_for('dashboard') }}" class="dashboard-button">Back to Dashboard🔙</a>
+</body>
+
+</html>

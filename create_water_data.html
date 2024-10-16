@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Water Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Submit Water Data</h1>
+    <form method="POST">
+        <label for="ph">pH:</label>
+        <input type="number" step="0.01" name="ph" required>
+        <label for="color">Color:</label>
+        <input type="text" name="color" required>
+        <label for="acidity">Acidity:</label>
+        <input type="number" step="0.01" name="acidity" required>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="{{ url_for('dashboard') }}" class="button">Back to Dashboard</a>
+</body>
+
+</html>

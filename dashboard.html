@@ -1,0 +1,751 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+
+    {% if role == 'user' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('create_water_data') }}" class="dashboard-button">Submit Water Data</a>
+        <a href="{{ url_for('view_water_data') }}" class="dashboard-button">View Submitted Water Data</a>
+    </div>
+    {% elif role == 'admin' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('manage_users') }}" class="dashboard-button">Manage Users</a>
+    </div>
+    {% elif role == 'government' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('validate_data') }}" class="dashboard-button">Validate Submitted Data</a>
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+</body>
+
+</html>
+ANORHER ONE
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard📶</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+
+    {% if role == 'user' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('create_water_data') }}" class="dashboard-button">Submit Water Data🚰</a>
+        <a href="{{ url_for('view_water_data') }}" class="dashboard-button">View Submitted Water Data🚰</a>
+    </div>
+    {% elif role == 'admin' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('manage_users') }}" class="dashboard-button">Manage Users🧑‍💼</a>
+    </div>
+    {% elif role == 'government' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('validate_data') }}" class="dashboard-button">Validate Submitted Data🚾</a>
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('logout') }}" class="logout-button">↪️Logout</a>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    {% if role == 'user' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('create_water_data') }}" class="dashboard-button">Submit Water Data</a>
+        <a href="{{ url_for('view_water_data') }}" class="dashboard-button">View Submitted Water Data</a>
+    </div>
+    {% elif role == 'admin' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('manage_users') }}" class="dashboard-button">Manage Users</a>
+    </div>
+    {% elif role == 'government' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('validate_data') }}" class="dashboard-button">Validate Submitted Data</a>
+    </div>
+    {% endif %}
+    <h2>Transaction History</h2>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.transaction_type }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    {% if role == 'user' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('create_water_data') }}" class="dashboard-button">Submit Water Data</a>
+        <a href="{{ url_for('view_water_data') }}" class="dashboard-button">View Submitted Water Data</a>
+    </div>
+    {% elif role == 'admin' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('manage_users') }}" class="dashboard-button">Manage Users</a>
+    </div>
+    {% elif role == 'government' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('validate_data') }}" class="dashboard-button">Validate Submitted Data</a>
+    </div>
+    {% endif %}
+
+    <!-- MetaMask Information Table 
+    <h2>MetaMask Information</h2>
+    <table class="meta-mask-info">
+        <tr>
+            <th>MetaMask Status</th>
+            <th>Current Block Number</th>
+            <th>Balance</th>
+            <th>Transaction Hash</th>
+            <th>Amount Sent</th>
+            <th>Amount Received</th>
+        </tr>
+        <tr>
+            <td id="metaMaskStatus">MetaMask is not installed❗</td>
+            <td id="blockNumber"></td>
+            <td id="balance"></td>
+            <td id="transactionHash"></td>
+            <td id="amountSent"></td>
+            <td id="amountReceived"></td>
+        </tr>
+    </table>
+
+    <!-- Transaction History Table 
+    <h2>Transaction History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('logout') }}" class="dashboard-button">Logout</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const network = await provider.getNetwork();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await provider.getSigner().getAddress());
+
+                document.getElementById('blockNumber').innerText = blockNumber;
+                document.getElementById('balance').innerText = `${ethers.utils.formatEther(balance)} ETH`;
+
+                // Fetch transactions for amount sent and received
+                const history = await provider.getHistory(await provider.getSigner().getAddress());
+                let lastTransaction = history[history.length - 1];
+                document.getElementById('transactionHash').innerText = lastTransaction.hash;
+                document.getElementById('amountSent').innerText = `${ethers.utils.formatEther(lastTransaction.value)} ETH`;
+
+                // Amount received would require additional logic to compute if necessary
+                document.getElementById('amountReceived').innerText = `Not tracked`; // Adjust if you have a way to track received amounts
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        // Check MetaMask connection status on page load
+        window.onload = checkMetaMask;
+    </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        .dashboard-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .dashboard-button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .meta-mask-info {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .meta-mask-info th,
+        .meta-mask-info td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .meta-mask-info th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    {% if role == 'user' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('create_water_data') }}" class="dashboard-button">Submit Water Data</a>
+        <a href="{{ url_for('view_water_data') }}" class="dashboard-button">View Submitted Water Data</a>
+    </div>
+    {% elif role == 'admin' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('manage_users') }}" class="dashboard-button">Manage Users</a>
+    </div>
+    {% elif role == 'government' %}
+    <div class="dashboard-buttons">
+        <a href="{{ url_for('validate_data') }}" class="dashboard-button">Validate Submitted Data</a>
+    </div>
+    {% endif %}
+
+    <!-- MetaMask Information Table 
+    <h2>MetaMask Information</h2>
+    <table class="meta-mask-info">
+        <tr>
+            <th>MetaMask Status</th>
+            <th>Current Block Number</th>
+            <th>Balance</th>
+            <th>Transaction Hash</th>
+            <th>Amount Sent</th>
+            <th>Amount Received</th>
+        </tr>
+        <tr>
+            <td id="metaMaskStatus">MetaMask is not installed❗</td>
+            <td id="blockNumber"></td>
+            <td id="balance"></td>
+            <td id="transactionHash"></td>
+            <td id="amountSent"></td>
+            <td id="amountReceived"></td>
+        </tr>
+    </table>
+
+    <!-- Transaction History Table 
+    <h2>Transaction History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="transactionsTableBody">
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('logout') }}" class="dashboard-button">Logout</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const network = await provider.getNetwork();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await provider.getSigner().getAddress());
+
+                document.getElementById('blockNumber').innerText = blockNumber;
+                document.getElementById('balance').innerText = `${ethers.utils.formatEther(balance)} ETH`;
+
+                // Fetch transactions for amount sent and received
+                const history = await provider.getHistory(await provider.getSigner().getAddress());
+                let lastTransaction = history[history.length - 1];
+                document.getElementById('transactionHash').innerText = lastTransaction.hash;
+                document.getElementById('amountSent').innerText = `${ethers.utils.formatEther(lastTransaction.value)} ETH`;
+
+                // Amount received would require additional logic to compute if necessary
+                document.getElementById('amountReceived').innerText = `Not tracked`; // Adjust if you have a way to track received amounts
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        function saveTransactions() {
+            const table = document.getElementById('transactionsTableBody');
+            const rows = table.getElementsByTagName('tr');
+            let data = [];
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName('td');
+                if (cells.length > 0) {
+                    data.push({
+                        type: cells[0].innerText,
+                        amount: cells[1].innerText,
+                        timestamp: cells[2].innerText
+                    });
+                }
+            }
+            localStorage.setItem('transactions', JSON.stringify(data));
+        }
+
+        function loadTransactions() {
+            const savedData = localStorage.getItem('transactions');
+            if (savedData) {
+                const transactions = JSON.parse(savedData);
+                const tableBody = document.getElementById('transactionsTableBody');
+                tableBody.innerHTML = '';
+                transactions.forEach(transaction => {
+                    const row = `<tr>
+                        <td>${transaction.type}</td>
+                        <td>${transaction.amount}</td>
+                        <td>${transaction.timestamp}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        window.onload = function () {
+            checkMetaMask();
+            loadTransactions();
+        };
+
+        window.onbeforeunload = function () {
+            saveTransactions();
+        };
+    </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+
+    <!-- Navigation Buttons 
+    <div class="dashboard-buttons">
+        {% if role == 'user' %}
+        <a href="{{ url_for('create_water_data') }}" class="dashboard-button">Submit Water Data</a>
+        <a href="{{ url_for('view_water_data') }}" class="dashboard-button">View Submitted Water Data</a>
+        {% elif role == 'admin' %}
+        <a href="{{ url_for('manage_users') }}" class="dashboard-button">Manage Users</a>
+        {% elif role == 'government' %}
+        <a href="{{ url_for('validate_data') }}" class="dashboard-button">Validate Submitted Data</a>
+        {% endif %}
+    </div>
+
+    <!-- MetaMask Information Table 
+    <h2>Wallet Information</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>MetaMask Status</th>
+                <th>Current Block Number</th>
+                <th>Balance</th>
+                <th>Transaction Hash</th>
+                <th>Amount Sent</th>
+                <th>Amount Received</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="metaMaskStatus">MetaMask is not installed❗</td>
+                <td id="blockNumber"></td>
+                <td id="balance"></td>
+                <td id="transactionHash"></td>
+                <td id="amountSent"></td>
+                <td id="amountReceived"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Transaction History Table 
+    <h2>Transaction History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="transactionsTableBody">
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const penaltyAmount = ethers.utils.parseEther('0.0000057'); // Penalty amount
+        const validateAmount = ethers.utils.parseEther('0.000004'); // Validation amount
+        const incentiveAmount = ethers.utils.parseEther('0.00000034'); // Incentive amount
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        let lastTransaction = JSON.parse(localStorage.getItem('lastTransaction')) || {};
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const network = await provider.getNetwork();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await provider.getSigner().getAddress());
+
+                document.getElementById('blockNumber').innerText = blockNumber;
+                document.getElementById('balance').innerText = `${ethers.utils.formatEther(balance)} ETH`;
+
+                if (lastTransaction.mainHash) {
+                    document.getElementById('transactionHash').innerText = lastTransaction.mainHash;
+                    document.getElementById('amountSent').innerText = `${ethers.utils.formatEther(lastTransaction.amountSent || 0)} ETH`;
+                    document.getElementById('amountReceived').innerText = `${ethers.utils.formatEther(incentiveAmount)} ETH`;
+                }
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        function saveTransactions() {
+            const table = document.getElementById('transactionsTableBody');
+            const rows = table.getElementsByTagName('tr');
+            let data = [];
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName('td');
+                if (cells.length > 0) {
+                    data.push({
+                        type: cells[0].innerText,
+                        amount: cells[1].innerText,
+                        timestamp: cells[2].innerText
+                    });
+                }
+            }
+            localStorage.setItem('transactions', JSON.stringify(data));
+        }
+
+        function loadTransactions() {
+            const savedData = localStorage.getItem('transactions');
+            if (savedData) {
+                const transactions = JSON.parse(savedData);
+                const tableBody = document.getElementById('transactionsTableBody');
+                tableBody.innerHTML = '';
+                transactions.forEach(transaction => {
+                    const row = `<tr>
+                        <td>${transaction.type}</td>
+                        <td>${transaction.amount}</td>
+                        <td>${transaction.timestamp}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        window.onload = function () {
+            checkMetaMask();
+            loadTransactions();
+        };
+
+        window.onbeforeunload = function () {
+            saveTransactions();
+        };
+    </script>
+</body>
+
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Welcome, {{ username }} , here is your dashboard!</h1>
+
+    <!-- Navigation Buttons -->
+    <div class="dashboard-buttons">
+        {% if role == 'user' %}
+        <a href="{{ url_for('create_water_data') }}" class="dashboard-button">Submit Water Data</a>
+        <a href="{{ url_for('view_water_data') }}" class="dashboard-button">View Submitted Water Data</a>
+        {% if items %}
+        <a href="{{ url_for('update_water_data', data_id=items[0].id) }}" class="dashboard-button">Update Water Data</a>
+        {% endif %}
+        <a href="{{ url_for('query_data') }}" class="dashboard-button">Query Water Data</a>
+        {% elif role == 'admin' %}
+        <a href="{{ url_for('manage_users') }}" class="dashboard-button">Manage Users</a>
+        {% elif role == 'government' %}
+        <a href="{{ url_for('validate_data') }}" class="dashboard-button">Validate Submitted Data</a>
+        {% endif %}
+    </div>
+
+    <!-- MetaMask Information Table -->
+    <h2>Wallet Information</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Wallet Status</th>
+                <th>Current Block Number</th>
+                <th>Account Balance</th>
+                <th>Transaction Hash</th>
+                <th>Penalty Sent</th>
+                <th>Incentive Sent/Received</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="metaMaskStatus">MetaMask is not installed❗</td>
+                <td id="blockNumber"></td>
+                <td id="balance"></td>
+                <td id="transactionHash"></td>
+                <td id="amountSent"></td>
+                <td id="amountReceived"></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <!-- Transaction History Table -->
+    <h2>Transaction History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th> Transaction Type</th>
+                <th>Amount Spent</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="transactionsTableBody">
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const penaltyAmount = ethers.utils.parseEther('0.0000057'); // Penalty amount
+        const validateAmount = ethers.utils.parseEther('0.000004'); // Validation amount
+        const incentiveAmount = ethers.utils.parseEther('0.00000034'); // Incentive amount
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        let lastTransaction = JSON.parse(localStorage.getItem('lastTransaction')) || {};
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const network = await provider.getNetwork();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await provider.getSigner().getAddress());
+
+                document.getElementById('blockNumber').innerText = blockNumber;
+                document.getElementById('balance').innerText = `${ethers.utils.formatEther(balance)} ETH`;
+
+                if (lastTransaction.mainHash) {
+                    document.getElementById('transactionHash').innerText = lastTransaction.mainHash;
+                    document.getElementById('amountSent').innerText = `${ethers.utils.formatEther(lastTransaction.amountSent || 0)} ETH`;
+                    document.getElementById('amountReceived').innerText = `${ethers.utils.formatEther(incentiveAmount)} ETH`;
+                }
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        function saveTransactions() {
+            const table = document.getElementById('transactionsTableBody');
+            const rows = table.getElementsByTagName('tr');
+            let data = [];
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName('td');
+                if (cells.length > 0) {
+                    data.push({
+                        type: cells[0].innerText,
+                        amount: cells[1].innerText,
+                        timestamp: cells[2].innerText
+                    });
+                }
+            }
+            localStorage.setItem('transactions', JSON.stringify(data));
+        }
+
+        function loadTransactions() {
+            const savedData = localStorage.getItem('transactions');
+            if (savedData) {
+                const transactions = JSON.parse(savedData);
+                const tableBody = document.getElementById('transactionsTableBody');
+                tableBody.innerHTML = '';
+                transactions.forEach(transaction => {
+                    const row = `<tr>
+                        <td>${transaction.type}</td>
+                        <td>${transaction.amount}</td>
+                        <td>${transaction.timestamp}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        window.onload = function () {
+            checkMetaMask();
+            loadTransactions();
+        };
+
+        window.onbeforeunload = function () {
+            saveTransactions();
+        };
+    </script>
+
+</body>
+
+</html>

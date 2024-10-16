@@ -1,0 +1,613 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+
+    background-image: url('/static/unsplash.jpg');
+    /* Replace with the path to your background image */
+    background-size: cover;
+    /* Cover the entire background */
+    background-position: center;
+    /* Center the background image */
+    background-repeat: no-repeat;
+    /* Prevent repeating the background image */
+    background-attachment: fixed;
+}
+
+.logo-container {
+    display: flex;
+    align-items: left;
+    justify-content: flex-start;
+    /* Aligns the logo to the left */
+}
+
+.logo {
+    width: 60px;
+    /* Adjust size as needed */
+    height: 60px;
+    border-radius: 50%;
+    /* Makes the logo round */
+    object-fit: cover;
+    /* Ensures the image covers the container without distortion */
+}
+
+/* Container for Centering Content */
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Header */
+h1 {
+    color: white;
+    margin: 20px 0;
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Welcome Page */
+.welcome-page {
+    text-align: center;
+}
+
+.welcome-page h1 {
+    font-size: 3em;
+    color: white;
+}
+
+.welcome-page p {
+    font-size: 1.2em;
+    color: whitesmoke;
+    margin: 10px 0;
+}
+
+/* Forms */
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 600px;
+    border: none;
+
+}
+
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: none;
+    border-radius: 8px;
+    box-shadow: none;
+    text-align: center;
+    margin-top: 80px;
+    /* Space for the fixed navbar */
+}
+
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px 24px;
+    background-color: none;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: none;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+td {
+    border-bottom: 1px solid blue;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Links */
+a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Alerts */
+.flash {
+    color: #d9534f;
+    background-color: #f9d6d5;
+    border: 1px solid #d9534f;
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* General Styles */
+
+/* Container for Centering Content */
+
+/* Header */
+h1 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Flexbox Container for Links */
+.link-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+/* Links */
+a:hover {
+    background-color: none;
+    text-decoration: none;
+}
+
+/* Adjust the appearance of the logout link */
+a.logout {
+    background-color: #dc3545;
+}
+
+a.logout:hover {
+    background-color: #c82333;
+}
+
+/*
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+nav {
+    width: 100%;
+    background-color: #007bff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+
+}
+
+.navbar a {
+
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Header */
+h1 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Flexbox Container for Links */
+.link-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+/* Links */
+/* Adjust the appearance of the logout link */
+a.logout {
+    background-color: #dc3545;
+}
+
+a.logout:hover {
+    background-color: #c82333;
+}
+
+/* Table Actions */
+td a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+td a[href*='approve'] {
+    background-color: #28a745;
+    /* Green for approval */
+}
+
+td a[href*='approve']:hover {
+    background-color: #218838;
+}
+
+td a[href*='reject'] {
+    background-color: #dc3545;
+    /* Red for rejection */
+}
+
+td a[href*='reject']:hover {
+    background-color: #c82333;
+}
+
+td a {
+    font-size: 0.9em;
+    color: white;
+
+}
+
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: whitesmoke;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: none;
+}
+
+.animation-container {
+    text-align: center;
+    /* Center the animation */
+    margin-top: 20px;
+}
+
+.animation-container img {
+    max-width: 100%;
+    /* Ensure the image scales responsively */
+    height: auto;
+}
+
+.image-container {
+    text-align: center;
+    /* Center the image */
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    /* Ensure the image scales responsively */
+    height: auto;
+}
+
+/* Navbar*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0056b3;
+    padding: 10px;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+}
+
+.nav-left a {
+    margin-right: 10px;
+}
+
+.nav-right a {
+    margin-left: 10px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+form {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: none;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    color: blue;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px blue;
+    text-align: center;
+}
+
+th {
+    background-color: #0056b3;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: none;
+    color: #0056b3;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+a.button:hover {
+    background-color: none;
+}
+
+/**/
+
+.dashboard-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    /* Increased gap for better spacing */
+    margin-top: 20px;
+}
+
+.dashboard-button {
+    background-color: none;
+    /* Bright blue for button background */
+    color: #ffffff;
+    /* White text for buttons */
+    padding: 12px 24px;
+    /* Adjusted padding for a larger button */
+    text-decoration: none;
+    border-radius: 8px;
+    /* Slightly rounded corners */
+    display: inline-block;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Smooth transition for hover effects */
+}
+
+.dashboard-button:hover {
+    background-color: none;
+    /* Darker blue on hover */
+    transform: scale(1.05);
+    /* Slight zoom effect on hover */
+}
+
+.logout-button {
+    display: block;
+    margin: 20px auto;
+    background-color: #dc3545;
+    /* Red background for logout button */
+    color: #ffffff;
+    /* White text for logout button */
+    padding: 12px 24px;
+    /* Consistent padding with dashboard buttons */
+    text-decoration: none;
+    border-radius: 8px;
+    /* Consistent rounded corners */
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Consistent shadow with dashboard buttons */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Smooth transition for hover effects */
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+    /* Darker red on hover */
+    transform: scale(1.05);
+    /* Slight zoom effect on hover */
+}
+
+
+/* General Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Header Styling */
+th {
+    background-color: #007BFF;
+
+}
+
+/* Row Styling */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Link Styling */
+a {
+    display: inline-block;
+    background-color: none;
+    color: #0056b3;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+}
+
+a:hover {
+    background-color: none;
+}
+
+/* styles.css */

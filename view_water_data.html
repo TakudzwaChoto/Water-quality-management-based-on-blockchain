@@ -1,0 +1,1109 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Water Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>View Submitted Water Data</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>pH</th>
+            <th>Color</th>
+            <th>Acidity</th>
+            <th>Validated</th>
+        </tr>
+        {% for data in water_data %}
+        <tr>
+            <td>{{ data.id }}</td>
+            <td>{{ data.ph }}</td>
+            <td>{{ data.color }}</td>
+            <td>{{ data.acidity }}</td>
+            <td>{{ 'Yes and incentivized' if data.validated else 'Pending... ' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Submitted Water Data🚾</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>View Submitted Water Data🚾</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Color</th>
+                <th>Acidity</th>
+                <th>Validated</th> 
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in water_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.ph }}</td>
+                <td>{{ data.color }}</td>
+                <td>{{ data.acidity }}</td>
+                <!-- Show "Yes" if validated is True, otherwise "No" 
+                <td>{{ 'Done (✔️)' if data.validated else 'Pending...(🔜)' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard🔙</a>
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Water Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Submitted Water Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Color</th>
+                <th>Acidity</th>
+                <th>Validated</th>
+                <th>Validator</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in water_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.ph }}</td>
+                <td>{{ data.color }}</td>
+                <td>{{ data.acidity }}</td>
+                <td>{{ 'Done' if data.validated else 'Pending...(🔜)' }}</td>
+                <td>{{ validator_usernames.get(data.validator_id, 'No validator validated yet') }}</td>
+                <td>{{ data.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard🔙</a>
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Water Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Submitted Water Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Color</th>
+                <th>Acidity</th>
+                <th>Validated</th>
+                <th>Validator</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in water_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.ph }}</td>
+                <td>{{ data.color }}</td>
+                <td>{{ data.acidity }}</td>
+                <td>{{ 'Done' if data.validated else 'Pending...(🔜)' }}</td>
+                <td>{{ validator_usernames.get(data.validator_id, 'No validator validated yet') }}</td>
+                <td>{{ data.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>MetaMask Status</h1>
+    <div id="status">
+        <p id="metaMaskStatus">MetaMask is not installed❗</p>
+        <p id="blockNumber"></p>
+        <p id="balance"></p>
+        <p id="transactionHash"></p>
+        <p id="amountSent"></p>
+        <p id="amountReceived"></p>
+    </div>
+
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard🔙</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const network = await provider.getNetwork();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await provider.getSigner().getAddress());
+
+                document.getElementById('blockNumber').innerText = `Current Block Number: ${blockNumber}`;
+                document.getElementById('balance').innerText = `Balance: ${ethers.utils.formatEther(balance)} ETH`;
+
+                // Fetch transactions for amount sent and received
+                // Note: This is just an example. Actual implementation might require querying a blockchain node.
+                const history = await provider.getHistory(await provider.getSigner().getAddress());
+                let lastTransaction = history[history.length - 1];
+                document.getElementById('transactionHash').innerText = `Transaction Hash: ${lastTransaction.hash}`;
+                document.getElementById('amountSent').innerText = `Amount Sent: ${ethers.utils.formatEther(lastTransaction.value)} ETH`;
+                // Amount received would require additional logic to compute if necessary
+                document.getElementById('amountReceived').innerText = `Amount Received: Not tracked`;
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        // Check MetaMask connection status on page load
+        window.onload = checkMetaMask;
+    </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Water Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Submitted Water Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Color</th>
+                <th>Acidity</th>
+                <th>Validated</th>
+                <th>Validator</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in water_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.ph }}</td>
+                <td>{{ data.color }}</td>
+                <td>{{ data.acidity }}</td>
+                <td>{{ 'Done' if data.validated else 'Pending...(🔜)' }}</td>
+                <td>{{ validator_usernames.get(data.validator_id, 'No validator validated yet') }}</td>
+                <td>{{ data.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>MetaMask Information</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Details</th>
+                <th>Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>MetaMask Status</td>
+                <td id="metaMaskStatus">MetaMask is not installed❗</td>
+            </tr>
+            <tr>
+                <td>Current Block Number</td>
+                <td id="blockNumber"></td>
+            </tr>
+            <tr>
+                <td>Balance</td>
+                <td id="balance"></td>
+            </tr>
+            <tr>
+                <td>Transaction Hash</td>
+                <td id="transactionHash"></td>
+            </tr>
+            <tr>
+                <td>Amount Sent</td>
+                <td id="amountSent"></td>
+            </tr>
+            <tr>
+                <td>Amount Received</td>
+                <td id="amountReceived"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard🔙</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const network = await provider.getNetwork();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await provider.getSigner().getAddress());
+
+                document.getElementById('blockNumber').innerText = blockNumber;
+                document.getElementById('balance').innerText = `${ethers.utils.formatEther(balance)} ETH`;
+
+                // Fetch transactions for amount sent and received
+                const history = await provider.getHistory(await provider.getSigner().getAddress());
+                let lastTransaction = history[history.length - 1];
+                document.getElementById('transactionHash').innerText = lastTransaction.hash;
+                document.getElementById('amountSent').innerText = `${ethers.utils.formatEther(lastTransaction.value)} ETH`;
+
+                // Amount received would require additional logic to compute if necessary
+                document.getElementById('amountReceived').innerText = `Not tracked`; // Adjust if you have a way to track received amounts
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        // Check MetaMask connection status on page load
+        window.onload = checkMetaMask;
+    </script>
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Submitted Water Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <h1>Submitted Water Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Color</th>
+                <th>Acidity</th>
+                <th>Validated</th>
+                <th>Validator</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in water_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.ph }}</td>
+                <td>{{ data.color }}</td>
+                <td>{{ data.acidity }}</td>
+                <td>{{ 'Done' if data.validated else 'Pending...(🔜)' }}</td>
+                <td>{{ validator_usernames.get(data.validator_id, 'No authority validated yet') }}</td>
+                <td>{{ data.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Wallet Information</h1>
+    <table class="meta-mask-info">
+        <tr>
+            <th>Wallet Status</th>
+            <th>Current Block Number</th>
+            <th>Balance</th>
+            <th>Transaction Hash</th>
+            <th>Amount Sent</th>
+            <th>Amount Received</th>
+        </tr>
+        <tr>
+            <td id="metaMaskStatus">MetaMask is not installed❗</td>
+            <td id="blockNumber"></td>
+            <td id="balance"></td>
+            <td id="transactionHash"></td>
+            <td id="amountSent"></td>
+            <td id="amountReceived"></td>
+        </tr>
+    </table>
+
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard🔙</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const network = await provider.getNetwork();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await provider.getSigner().getAddress());
+
+                document.getElementById('blockNumber').innerText = blockNumber;
+                document.getElementById('balance').innerText = `${ethers.utils.formatEther(balance)} ETH`;
+
+                // Fetch transactions for amount sent and received
+                const history = await provider.getHistory(await provider.getSigner().getAddress());
+                let lastTransaction = history[history.length - 1];
+                document.getElementById('transactionHash').innerText = lastTransaction.hash;
+                document.getElementById('amountSent').innerText = `${ethers.utils.formatEther(lastTransaction.value)} ETH`;
+
+                // Amount received would require additional logic to compute if necessary
+                document.getElementById('amountReceived').innerText = `Not tracked`; // Adjust if you have a way to track received amounts
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        // Check MetaMask connection status on page load
+        window.onload = checkMetaMask;
+    </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Submitted Water Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .meta-mask-info {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .meta-mask-info th,
+        .meta-mask-info td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .meta-mask-info th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .dashboard-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .dashboard-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Submitted Water Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Color</th>
+                <th>Acidity</th>
+                <th>Validated</th>
+                <th>Validator</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="waterDataTableBody">
+            {% for data in water_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.ph }}</td>
+                <td>{{ data.color }}</td>
+                <td>{{ data.acidity }}</td>
+                <td>{{ 'Done' if data.validated else 'Pending...(🔜)' }}</td>
+                <td>{{ validator_usernames.get(data.validator_id, 'No authority validated yet') }}</td>
+                <td>{{ data.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="transactionsTableBody">
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Wallet Information</h1>
+    <table class="meta-mask-info">
+        <tr>
+            <th>Wallet Status</th>
+            <th>Current Block Number</th>
+            <th>Balance</th>
+            <th>Transaction Hash</th>
+            <th>Amount Sent</th>
+            <th>Amount Received</th>
+        </tr>
+        <tr>
+            <td id="metaMaskStatus">MetaMask is not installed❗</td>
+            <td id="blockNumber"></td>
+            <td id="balance"></td>
+            <td id="transactionHash"></td>
+            <td id="amountSent"></td>
+            <td id="amountReceived"></td>
+        </tr>
+    </table>
+
+    <a href="{{ url_for('dashboard') }}" class="dashboard-button">Back to Dashboard🔙</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const network = await provider.getNetwork();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await provider.getSigner().getAddress());
+
+                document.getElementById('blockNumber').innerText = blockNumber;
+                document.getElementById('balance').innerText = `${ethers.utils.formatEther(balance)} ETH`;
+
+                // Fetch transactions for amount sent and received
+                const history = await provider.getHistory(await provider.getSigner().getAddress());
+                let lastTransaction = history[history.length - 1];
+                document.getElementById('transactionHash').innerText = lastTransaction.hash;
+                document.getElementById('amountSent').innerText = `${ethers.utils.formatEther(lastTransaction.value)} ETH`;
+
+                // Amount received would require additional logic to compute if necessary
+                document.getElementById('amountReceived').innerText = `Not tracked`; // Adjust if you have a way to track received amounts
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        function saveWaterData() {
+            const table = document.getElementById('waterDataTableBody');
+            const rows = table.getElementsByTagName('tr');
+            let data = [];
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName('td');
+                if (cells.length > 0) {
+                    data.push({
+                        id: cells[0].innerText,
+                        ph: cells[1].innerText,
+                        color: cells[2].innerText,
+                        acidity: cells[3].innerText,
+                        validated: cells[4].innerText,
+                        validator: cells[5].innerText,
+                        timestamp: cells[6].innerText
+                    });
+                }
+            }
+            localStorage.setItem('waterData', JSON.stringify(data));
+        }
+
+        function loadWaterData() {
+            const savedData = localStorage.getItem('waterData');
+            if (savedData) {
+                const waterData = JSON.parse(savedData);
+                const tableBody = document.getElementById('waterDataTableBody');
+                tableBody.innerHTML = '';
+                waterData.forEach(data => {
+                    const row = `<tr>
+                        <td>${data.id}</td>
+                        <td>${data.ph}</td>
+                        <td>${data.color}</td>
+                        <td>${data.acidity}</td>
+                        <td>${data.validated}</td>
+                        <td>${data.validator}</td>
+                        <td>${data.timestamp}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        function saveTransactions() {
+            const table = document.getElementById('transactionsTableBody');
+            const rows = table.getElementsByTagName('tr');
+            let data = [];
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName('td');
+                if (cells.length > 0) {
+                    data.push({
+                        id: cells[0].innerText,
+                        type: cells[1].innerText,
+                        amount: cells[2].innerText,
+                        timestamp: cells[3].innerText
+                    });
+                }
+            }
+            localStorage.setItem('transactions', JSON.stringify(data));
+        }
+
+        function loadTransactions() {
+            const savedData = localStorage.getItem('transactions');
+            if (savedData) {
+                const transactions = JSON.parse(savedData);
+                const tableBody = document.getElementById('transactionsTableBody');
+                tableBody.innerHTML = '';
+                transactions.forEach(transaction => {
+                    const row = `<tr>
+                        <td>${transaction.id}</td>
+                        <td>${transaction.type}</td>
+                        <td>${transaction.amount}</td>
+                        <td>${transaction.timestamp}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        window.onload = function () {
+            checkMetaMask();
+            loadWaterData();
+            loadTransactions();
+        };
+
+        window.onbeforeunload = function () {
+            saveWaterData();
+            saveTransactions();
+        };
+    </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Submitted Water Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <h1>Submitted Water Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Color</th>
+                <th>Acidity</th>
+                <th>Validated</th>
+                <th>Validator</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="waterDataTableBody">
+            {% for data in water_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.ph }}</td>
+                <td>{{ data.color }}</td>
+                <td>{{ data.acidity }}</td>
+                <td>{{ 'Done' if data.validated else 'Pending...(🔜)' }}</td>
+                <td>{{ validator_usernames.get(data.validator_id, 'No authority validated yet') }}</td>
+                <td>{{ data.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+    <h1>Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="transactionsTableBody">
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Wallet Information</h1>
+    <table class="meta-mask-info">
+        <tr>
+            <th>Wallet Status</th>
+            <th>Current Block Number</th>
+            <th>Balance</th>
+            <th>Transaction Hash</th>
+            <th>Amount Sent</th>
+            <th>Amount Received</th>
+        </tr>
+        <tr>
+            <td id="metaMaskStatus">MetaMask is not installed❗</td>
+            <td id="blockNumber"></td>
+            <td id="balance"></td>
+            <td id="transactionHash"></td>
+            <td id="amountSent"></td>
+            <td id="amountReceived"></td>
+        </tr>
+    </table>
+
+    <a href="{{ url_for('dashboard') }}" class="dashboard-button">Back to Dashboard🔙</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await signer.getAddress());
+
+                document.getElementById('blockNumber').innerText = blockNumber;
+                document.getElementById('balance').innerText = `${ethers.utils.formatEther(balance)} ETH`;
+
+                // Fetch transactions for amount sent and received
+                const history = await provider.getHistory(await signer.getAddress());
+                if (history.length > 0) {
+                    let lastTransaction = history[history.length - 1];
+                    document.getElementById('transactionHash').innerText = lastTransaction.hash;
+                    document.getElementById('amountSent').innerText = `${ethers.utils.formatEther(lastTransaction.value)} ETH`;
+                } else {
+                    document.getElementById('transactionHash').innerText = 'No transactions found';
+                    document.getElementById('amountSent').innerText = '0 ETH';
+                }
+
+                // Amount received would require additional logic to compute if necessary
+                document.getElementById('amountReceived').innerText = `Not tracked`; // Adjust if you have a way to track received amounts
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        function saveDataToLocalStorage(tableId, storageKey) {
+            const table = document.getElementById(tableId);
+            const rows = table.getElementsByTagName('tr');
+            let data = [];
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName('td');
+                if (cells.length > 0) {
+                    data.push(Array.from(cells).map(cell => cell.innerText));
+                }
+            }
+            localStorage.setItem(storageKey, JSON.stringify(data));
+        }
+
+        function loadDataFromLocalStorage(tableId, storageKey) {
+            const savedData = localStorage.getItem(storageKey);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                const tableBody = document.getElementById(tableId);
+                tableBody.innerHTML = '';
+                data.forEach(rowData => {
+                    const row = `<tr>${rowData.map(cellData => `<td>${cellData}</td>`).join('')}</tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        window.onload = function () {
+            checkMetaMask();
+            loadDataFromLocalStorage('waterDataTableBody', 'waterData');
+            loadDataFromLocalStorage('transactionsTableBody', 'transactions');
+        };
+
+        window.onbeforeunload = function () {
+            saveDataToLocalStorage('waterDataTableBody', 'waterData');
+            saveDataToLocalStorage('transactionsTableBody', 'transactions');
+        };
+    </script>
+</body>
+
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Submitted Water Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Submitted Water Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Color</th>
+                <th>Acidity</th>
+                <th>Validated</th>
+                <th>Validator</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="waterDataTableBody">
+            {% for data in water_data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.ph }}</td>
+                <td>{{ data.color }}</td>
+                <td>{{ data.acidity }}</td>
+                <td>{{ 'Done' if data.validated else 'Pending...(🔜)' }}</td>
+                <td>{% if data.validator_id %}
+                    {{ validator_usernames.get(data.validator_id, 'Unknown Validator') }}
+                    {% else %}
+                    No authority validated yet
+                    {% endif %}
+                </td>
+                <td>{{ data.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="transactionsTableBody">
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.timestamp }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    <a href="{{ url_for('dashboard') }}" class="dashboard-button">Back to Dashboard🔙</a>
+
+</body>
+
+</html>
+
+<!--
+<h1>Wallet Information</h1>
+    <table class="meta-mask-info">
+        <tr>
+            <th>Wallet Status</th>
+            <th>Current Block Number</th>
+            <th>Balance</th>
+            <th>Transaction Hash</th>
+            <th>Amount Sent</th>
+            <th>Amount Received</th>
+        </tr>
+        <tr>
+            <td id="metaMaskStatus">MetaMask is not installed❗</td>
+            <td id="blockNumber"></td>
+            <td id="balance"></td>
+            <td id="transactionHash"></td>
+            <td id="amountSent"></td>
+            <td id="amountReceived"></td>
+        </tr>
+    </table>
+
+    <a href="{{ url_for('dashboard') }}" class="dashboard-button">Back to Dashboard🔙</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.6/dist/ethers.umd.min.js"></script>
+    <script>
+        const recipientAddress = '0x776A1E56d80feC35C7b16476116C4257e061C223'; // The recipient address
+
+        async function checkMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is connected.';
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
+                const blockNumber = await provider.getBlockNumber();
+                const balance = await provider.getBalance(await signer.getAddress());
+
+                document.getElementById('blockNumber').innerText = blockNumber;
+                document.getElementById('balance').innerText = `${ethers.utils.formatEther(balance)} ETH`;
+
+                // Fetch transactions for amount sent and received
+                const history = await provider.getHistory(await signer.getAddress());
+                console.log('Transaction History:', history);  // Debugging statement
+                if (history.length > 0) {
+                    let lastTransaction = history[history.length - 1];
+                    document.getElementById('transactionHash').innerText = lastTransaction.hash;
+                    document.getElementById('amountSent').innerText = `${ethers.utils.formatEther(lastTransaction.value)} ETH`;
+                } else {
+                    document.getElementById('transactionHash').innerText = 'No transactions found';
+                    document.getElementById('amountSent').innerText = '0 ETH';
+                }
+
+                // Amount received would require additional logic to compute if necessary
+                document.getElementById('amountReceived').innerText = `Not tracked`; // Adjust if you have a way to track received amounts
+            } else {
+                document.getElementById('metaMaskStatus').innerText = 'MetaMask is not installed❗';
+            }
+        }
+
+        function saveDataToLocalStorage(tableId, storageKey) {
+            const table = document.getElementById(tableId);
+            const rows = table.getElementsByTagName('tr');
+            let data = [];
+            for (let i = 0; i < rows.length; i++) {
+                let cells = rows[i].getElementsByTagName('td');
+                if (cells.length > 0) {
+                    data.push(Array.from(cells).map(cell => cell.innerText));
+                }
+            }
+            localStorage.setItem(storageKey, JSON.stringify(data));
+        }
+
+        function loadDataFromLocalStorage(tableId, storageKey) {
+            const savedData = localStorage.getItem(storageKey);
+            console.log(`Loaded data for ${storageKey}:`, savedData);  // Debugging statement
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                const tableBody = document.getElementById(tableId);
+                tableBody.innerHTML = '';
+                data.forEach(rowData => {
+                    const row = `<tr>${rowData.map(cellData => `<td>${cellData}</td>`).join('')}</tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        window.onload = function () {
+            checkMetaMask();
+            loadDataFromLocalStorage('waterDataTableBody', 'waterData');
+            loadDataFromLocalStorage('transactionsTableBody', 'transactions');
+        };
+
+        window.onbeforeunload = function () {
+            saveDataToLocalStorage('waterDataTableBody', 'waterData');
+            saveDataToLocalStorage('transactionsTableBody', 'transactions');
+        };
+    </script>
+-->

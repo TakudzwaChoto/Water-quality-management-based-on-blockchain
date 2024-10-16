@@ -1,0 +1,79 @@
+<!--  
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+
+<body>
+    <h1>Welcome to the Water Quality Management System</h1>
+    <nav>
+        <div class="nav-left">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('signup') }}">Sign Up</a>
+        </div>
+        <div class="nav-right">
+            <a href="{{ url_for('about_us') }}">About Us</a>
+            <a href="{{ url_for('email_us') }}">Email Us</a>
+            <a href="{{ url_for('water_supply') }}">Water Supply</a>
+            <a href="{{ url_for('water_consumers') }}">Water Consumers</a>
+            <a href="{{ url_for('water_treatment') }}">Water Treatment</a>
+            <a href="{{ url_for('water_discharge') }}">Water Discharge</a>
+            <a href="{{ url_for('water_demand') }}">Water Demand</a>
+        </div>
+    </nav>
+    <a href="{{ url_for('dashboard') }}" class="dashboard-button">Back to Dashboard🔙</a>
+</body>
+
+</html>
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header class="header">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo">
+        </div>
+
+        <!-- Navigation Links -->
+        <nav>
+            <div class="nav-left">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('signup') }}">Sign Up</a>
+            </div>
+            <div class="nav-right">
+                <a href="{{ url_for('about_us') }}">About Us</a>
+                <a href="{{ url_for('email_us') }}">Email Us</a>
+                <a href="{{ url_for('water_supply') }}">Water Supply</a>
+                <a href="{{ url_for('water_consumers') }}">Water Consumers</a>
+                <a href="{{ url_for('water_treatment') }}">Water Treatment</a>
+                <a href="{{ url_for('water_discharge') }}">Water Discharge</a>
+                <a href="{{ url_for('water_demand') }}">Water Demand</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to the Water Quality Management System</h1>
+        <a href="{{ url_for('dashboard') }}" class="dashboard-button">Back to Dashboard🔙</a>
+    </main>
+</body>
+
+</html>
